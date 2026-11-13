@@ -8,12 +8,13 @@
 
 <style>
 :root {
-  --bg: #101010;
-  --panel: #191919;
-  --border: #55432d;
-  --copper: #bd8750;
-  --text: #d0c2ae;
-  --muted: #887967;
+  --bg: #080909;
+  --panel: #101110;
+  --panel2: #15130f;
+  --border: #382a1c;
+  --copper: #987047;
+  --text: #bdb3a3;
+  --muted: #71675a;
 }
 
 * { box-sizing: border-box; }
@@ -21,14 +22,14 @@
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top, #292016 0%, #101010 55%);
+    radial-gradient(ellipse at top, #17140f 0%, #090909 48%, #050606 100%);
   color: var(--text);
   font-family: Verdana, Arial, sans-serif;
   font-size: 13px;
 }
 
 header {
-  background: #17120e;
+  background: #0b0a08;
   border-bottom: 3px double var(--border);
   padding: 24px 12px;
   text-align: center;
@@ -48,25 +49,15 @@ header {
   image-rendering: pixelated;
 }
 
-.header-title {
-  text-align: center;
+.header-title { text-align: center; }
+
+.logo {
+  color: var(--copper);
+  font-family: Georgia, serif;
+  font-size: 34px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 12px #50351e;
 }
-
-@media (max-width: 520px) {
-  .header-brand {
-    gap: 10px;
-  }
-
-  .header-flag {
-    width: 52px;
-    height: 36px;
-  }
-
-  .logo {
-    font-size: 23px;
-  }
-}
-
 
 .subtitle {
   color: var(--muted);
@@ -76,7 +67,7 @@ header {
 }
 
 nav {
-  background: #241b13;
+  background: #100e0b;
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: center;
@@ -86,9 +77,9 @@ nav {
 }
 
 nav button {
-  background: #302318;
-  border: 1px solid #765331;
-  color: #d7b58d;
+  background: #19140f;
+  border: 1px solid #493522;
+  color: #b99a73;
   padding: 9px 17px;
   cursor: pointer;
   font-size: 12px;
@@ -96,73 +87,76 @@ nav button {
 
 nav button:hover,
 nav button.active {
-  background: #654323;
-  color: white;
+  background: #3a2819;
+  color: #e0c4a0;
 }
 
 main {
-  max-width: 920px;
+  max-width: 1050px;
   margin: 24px auto;
   padding: 0 14px;
 }
 
 .panel {
-  background: rgba(25, 25, 25, 0.96);
+  background: rgba(15, 16, 15, .97);
   border: 1px solid var(--border);
   margin-bottom: 18px;
   padding: 18px;
-  box-shadow: 0 4px 15px #0008;
+  box-shadow: 0 4px 15px #000a;
 }
 
 h2 {
   color: var(--copper);
   font-family: Georgia, serif;
   font-size: 20px;
-  border-bottom: 1px dotted #765331;
+  border-bottom: 1px dotted #493522;
   padding-bottom: 9px;
 }
 
 h3 {
-  color: #c49a6c;
+  color: #ad8b63;
   font-size: 14px;
 }
 
 p { line-height: 1.7; }
 
-a { color: #d6a56c; }
-
 .notice {
   border-left: 3px solid var(--copper);
   padding: 10px 14px;
-  background: #211b15;
-  color: #bca58b;
+  background: #15120e;
+  color: #a99984;
 }
 
-.grid {
+.video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
 }
 
 .video-card {
-  background: #111;
-  border: 1px solid #493725;
+  background: #0a0b0a;
+  border: 1px solid #382a1c;
   padding: 12px;
+  min-width: 0;
 }
 
-.video-card .thumbnail {
-  background: #282018;
-  min-height: 110px;
-  display: grid;
-  place-items: center;
-  color: #a27b51;
-  font-family: Georgia, serif;
-  font-size: 24px;
+.video-card video {
+  display: block;
+  width: 100%;
+  background: #000;
+  aspect-ratio: 16 / 9;
 }
 
-.timestamp {
+.video-description {
+  color: #a69b8a;
+  min-height: 35px;
+}
+
+.video-meta {
   color: var(--muted);
   font-size: 11px;
+  border-top: 1px dotted #382a1c;
+  padding-top: 8px;
 }
 
 .page { display: none; }
@@ -171,9 +165,17 @@ a { color: #d6a56c; }
 footer {
   text-align: center;
   padding: 22px;
-  color: #786957;
+  color: #62594d;
   border-top: 1px solid var(--border);
   font-size: 11px;
+}
+
+@media(max-width:520px) {
+  .header-brand { gap: 10px; }
+  .header-flag { width: 52px; height: 36px; }
+  .logo { font-size: 23px; }
+  main { padding: 0 9px; }
+  .panel { padding: 13px; }
 }
 </style>
 </head>
@@ -192,12 +194,11 @@ footer {
   </div>
 </header>
 
-
 <nav>
-  <button class="active" onclick="showPage('home', this)">Home</button>
-  <button onclick="showPage('videos', this)">Videos</button>
-  <button onclick="showPage('about', this)">About</button>
-  <button onclick="showPage('activity', this)">Activities</button>
+  <button class="active" onclick="showPage('home',this)">Home</button>
+  <button onclick="showPage('videos',this)">Videos</button>
+  <button onclick="showPage('about',this)">About</button>
+  <button onclick="showPage('activity',this)">Activities</button>
 </nav>
 
 <main>
@@ -206,48 +207,33 @@ footer {
   <div class="panel">
     <h2>Welcome</h2>
     <p>
-      Welcome to the website of the Luwian Base.
+      Welcome to Luwian Base.
     </p>
     <div class="notice">
-      Luwian Base - established on the 12th of November 2026
+      Established on the 12th of November 2026.
     </div>
   </div>
 
   <div class="panel">
     <h2>Latest update</h2>
     <p id="latest-update">Loading timestamp...</p>
-    <p class="timestamp">This timestamp reflects when the page was opened.</p>
   </div>
 </section>
 
 <section id="videos" class="page">
   <div class="panel">
     <h2>Video Archive</h2>
-    <p>Selected videos and personal projects.</p>
-
-    <div class="grid">
-      <div class="video-card">
-        <div class="thumbnail">𒀭</div>
-        <h3>Project One</h3>
-        <p class="timestamp">Video description goes here.</p>
-        <a href="#">Watch video</a>
-      </div>
-
-      <div class="video-card">
-        <div class="thumbnail">𒁹</div>
-        <h3>Project Two</h3>
-        <p class="timestamp">Video description goes here.</p>
-        <a href="#">Watch video</a>
-      </div>
-    </div>
+    <p>Videos of our suffering and loneliness, while many many others have their fun with their hot chicks...</p>
   </div>
+
+  <div class="video-grid" id="video-grid"></div>
 </section>
 
 <section id="about" class="page">
   <div class="panel">
-    <h2>About this website</h2>
+    <h2>About</h2>
     <p>
-      This is the website of the Luwian Base.
+      Luwian Base is an organisation for lonely people to find belonging and fight against guys with their hot chicks.
     </p>
   </div>
 </section>
@@ -255,13 +241,10 @@ footer {
 <section id="activity" class="page">
   <div class="panel">
     <h2>Website Activity</h2>
-    <p>Latest page activity:</p>
-    <ul>
-      <li>Website opened — <span class="live-time"></span></li>
-      <li>Archive loaded — <span class="live-time"></span></li>
-    </ul>
-    <p class="timestamp">
-      Times are displayed using your browser's local clock.
+    <p>Website opened:</p>
+    <p id="activity-time"></p>
+    <p class="video-meta">
+      Timestamp displayed using the visitor's local browser clock.
     </p>
   </div>
 </section>
@@ -269,7 +252,7 @@ footer {
 </main>
 
 <footer>
-  Luwian Base
+  LUWIAN BASE · 2026
 </footer>
 
 <script>
@@ -286,14 +269,46 @@ function showPage(pageId, button) {
   button.classList.add('active');
 }
 
+const videos = Array.from({length: 12}, (_, i) => ({
+  title: `Video ${i + 1}`,
+  description: "Add your video description here.",
+  file: `videos/video${i + 1}.mp4`
+}));
+
+const grid = document.getElementById("video-grid");
+
+videos.forEach(video => {
+  const card = document.createElement("article");
+  card.className = "video-card";
+
+  const player = document.createElement("video");
+  player.controls = true;
+  player.preload = "metadata";
+  player.playsInline = true;
+
+  const source = document.createElement("source");
+  source.src = video.file;
+  source.type = "video/mp4";
+  player.appendChild(source);
+
+  const title = document.createElement("h3");
+  title.textContent = video.title;
+
+  const description = document.createElement("p");
+  description.className = "video-description";
+  description.textContent = video.description;
+
+  card.append(player, title, description);
+  grid.appendChild(card);
+});
+
 const now = new Date();
 
-document.getElementById('latest-update').textContent =
+document.getElementById("latest-update").textContent =
   now.toLocaleString();
 
-document.querySelectorAll('.live-time').forEach(element => {
-  element.textContent = now.toLocaleString();
-});
+document.getElementById("activity-time").textContent =
+  now.toLocaleString();
 </script>
 
 </body>

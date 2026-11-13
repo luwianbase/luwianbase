@@ -34,13 +34,39 @@ header {
   text-align: center;
 }
 
-.logo {
-  font-family: Georgia, serif;
-  color: var(--copper);
-  font-size: 34px;
-  letter-spacing: 4px;
-  text-shadow: 0 0 12px #8a572d;
+.header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 }
+
+.header-flag {
+  width: 90px;
+  height: 60px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.header-title {
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .header-brand {
+    gap: 10px;
+  }
+
+  .header-flag {
+    width: 52px;
+    height: 36px;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+}
+
 
 .subtitle {
   color: var(--muted);
@@ -155,8 +181,17 @@ footer {
 <body>
 
 <header>
-  <div class="logo">LUWIAN BASE</div>
+  <div class="header-brand">
+    <img src="flag.png" alt="Decorative flag" class="header-flag">
+
+    <div class="header-title">
+      <div class="logo">LUWIAN BASE</div>
+    </div>
+
+    <img src="flag.png" alt="Decorative flag" class="header-flag">
+  </div>
 </header>
+
 
 <nav>
   <button class="active" onclick="showPage('home', this)">Home</button>

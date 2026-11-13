@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Luwian Base</title>
 
 <style>
+
+/* =========================================
+   GENERAL DESIGN
+========================================= */
+
 :root {
   --bg: #070808;
   --panel: #0e0f0e;
@@ -13,17 +19,35 @@
   --copper: #987047;
   --text: #bdb3a3;
   --muted: #71675a;
+  --white: #eeeeea;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  background: radial-gradient(ellipse at top, #15120e 0%, #090909 48%, #050606 100%);
+  background:
+    radial-gradient(
+      ellipse at top,
+      #15120e 0%,
+      #090909 48%,
+      #050606 100%
+    );
+
   color: var(--text);
   font-family: Verdana, Arial, sans-serif;
   font-size: 13px;
 }
+
+/* =========================================
+   HEADER
+========================================= */
 
 header {
   background: #090807;
@@ -61,13 +85,19 @@ header {
   font-size: 10px;
 }
 
+/* =========================================
+   NAVIGATION
+========================================= */
+
 nav {
   background: #0d0b09;
   border-bottom: 1px solid var(--border);
+
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 4px;
+
   padding: 10px;
 }
 
@@ -75,9 +105,11 @@ nav button {
   background: #17120e;
   border: 1px solid #493522;
   color: #b99a73;
+
   padding: 9px 17px;
   cursor: pointer;
   font-size: 12px;
+  font-family: Verdana, Arial, sans-serif;
 }
 
 nav button:hover,
@@ -85,6 +117,10 @@ nav button.active {
   background: #342315;
   color: #e0c4a0;
 }
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
 
 main {
   max-width: 1050px;
@@ -95,8 +131,10 @@ main {
 .panel {
   background: rgba(13, 14, 13, .98);
   border: 1px solid var(--border);
+
   margin-bottom: 18px;
   padding: 18px;
+
   box-shadow: 0 4px 15px #000a;
 }
 
@@ -104,6 +142,7 @@ h2 {
   color: var(--copper);
   font-family: Georgia, serif;
   font-size: 20px;
+
   border-bottom: 1px dotted #493522;
   padding-bottom: 9px;
 }
@@ -113,7 +152,9 @@ h3 {
   font-size: 14px;
 }
 
-p { line-height: 1.7; }
+p {
+  line-height: 1.7;
+}
 
 .notice {
   border-left: 3px solid var(--copper);
@@ -122,86 +163,273 @@ p { line-height: 1.7; }
   color: #a99984;
 }
 
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px;
+/* =========================================
+   PAGE NAVIGATION
+========================================= */
+
+.page {
+  display: none;
 }
 
-.video-card {
-  background: #090a09;
-  border: 1px solid #302317;
-  padding: 12px;
-  min-width: 0;
-}
-
-.video-card video {
+.page.active {
   display: block;
-  width: 100%;
-  background: #000;
-  aspect-ratio: 16 / 9;
 }
 
-.video-description {
+/* =========================================
+   ACTIVITIES INTRODUCTION
+========================================= */
+
+.activity-intro {
+  background:
+    linear-gradient(135deg, #17130e, #0b0c0b 70%);
+
+  border: 1px solid #493522;
+  padding: 25px;
+  margin-bottom: 24px;
+
+  box-shadow: 0 4px 15px #000a;
+}
+
+.activity-intro h1 {
+  color: var(--white);
+  font-family: Georgia, serif;
+  font-size: 29px;
+  letter-spacing: 1px;
+  margin: 0 0 12px 0;
+}
+
+.activity-intro p {
   color: #a69b8a;
-  min-height: 35px;
+  margin-bottom: 0;
 }
 
-.video-meta {
-  color: var(--muted);
-  font-size: 11px;
-  border-top: 1px dotted #302317;
-  padding-top: 8px;
+/* =========================================
+   ACTIVITY FEED
+========================================= */
+
+.activity-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
-.page { display: none; }
-.page.active { display: block; }
+.activity-entry {
+  background: #0c0d0c;
+  border: 1px solid #38291b;
+
+  padding: 22px;
+
+  box-shadow: 0 4px 15px #0009;
+
+  transition: border-color 0.2s ease;
+}
+
+.activity-entry:hover {
+  border-color: #765331;
+}
+
+.activity-date {
+  color: #a17a4e;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+
+.activity-entry h2 {
+  color: #eeeeea;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: bold;
+
+  border-bottom: 1px solid #302317;
+
+  padding-bottom: 13px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.activity-entry p {
+  color: #bdb3a3;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.activity-image {
+  margin-top: 20px;
+  padding: 10px;
+
+  background: #080908;
+  border: 1px solid #302317;
+
+  text-align: center;
+}
+
+.activity-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 550px;
+
+  width: auto;
+  height: auto;
+
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.activity-caption {
+  color: #756858;
+  font-size: 10px;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+.about-text {
+  color: #bdb3a3;
+  line-height: 1.9;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
 
 footer {
   text-align: center;
   padding: 22px;
+
   color: #62594d;
   border-top: 1px solid var(--border);
+
   font-size: 11px;
 }
 
-@media(max-width:520px) {
-  .header-brand { gap: 10px; }
-  .header-flag { width: 52px; height: 36px; }
-  .logo { font-size: 23px; }
-  main { padding: 0 9px; }
-  .panel { padding: 13px; }
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width: 520px) {
+
+  .header-brand {
+    gap: 10px;
+  }
+
+  .header-flag {
+    width: 52px;
+    height: 36px;
+  }
+
+  .logo {
+    font-size: 23px;
+    letter-spacing: 2px;
+  }
+
+  main {
+    padding: 0 9px;
+  }
+
+  .panel {
+    padding: 13px;
+  }
+
+  .activity-entry {
+    padding: 15px;
+  }
+
+  .activity-entry h2 {
+    font-size: 21px;
+  }
+
+  .activity-intro {
+    padding: 18px;
+  }
+
+  .activity-intro h1 {
+    font-size: 25px;
+  }
+
+  nav button {
+    padding: 9px 13px;
+  }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- =========================================
+     HEADER
+========================================= -->
+
 <header>
+
   <div class="header-brand">
-    <img src="flag.png" alt="Decorative flag" class="header-flag">
+
+    <img
+      src="flag.png"
+      alt="Luwian Base flag"
+      class="header-flag"
+    >
 
     <div>
       <div class="logo">LUWIAN BASE</div>
     </div>
 
-    <img src="flag.png" alt="Decorative flag" class="header-flag">
+    <img
+      src="flag.png"
+      alt="Luwian Base flag"
+      class="header-flag"
+    >
+
   </div>
+
 </header>
 
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
 <nav>
-  <button class="active" onclick="showPage('home',this)">Home</button>
-  <button onclick="showPage('videos',this)">Videos</button>
-  <button onclick="showPage('about',this)">About</button>
-  <button onclick="showPage('activity',this)">Activities</button>
+
+  <button
+    class="active"
+    onclick="showPage('home', this)"
+  >
+    Home
+  </button>
+
+  <button
+    onclick="showPage('about', this)"
+  >
+    About
+  </button>
+
+  <button
+    onclick="showPage('activity', this)"
+  >
+    Activities
+  </button>
+
 </nav>
+
 
 <main>
 
-<!-- HOME -->
+
+<!-- =========================================
+     HOME PAGE
+========================================= -->
+
 <section id="home" class="page active">
 
   <div class="panel">
+
     <h2>Welcome</h2>
 
     <p>
@@ -211,187 +439,265 @@ footer {
     <div class="notice">
       Established on the 12th of November 2026.
     </div>
+
   </div>
 
-  <div class="panel">
-    <h2>Latest update</h2>
-    <p id="latest-update">Loading timestamp...</p>
-  </div>
-
-</section>
-
-<!-- VIDEOS -->
-<section id="videos" class="page">
 
   <div class="panel">
-    <h2>Videos from the Luwian Base</h2>
+
+    <h2>Latest Update</h2>
 
     <p>
-      Videos of our suffering and loneliness, while many many others have their fun with their hot chicks... in cooperation with other organisations founded by PU-Šarruma.
+      Visit the Activities section to read the latest
+      activities of the Luwian Base and its affiliates.
     </p>
-  </div>
 
-  <div class="video-grid">
-
-    <!-- VIDEO 01 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video1.mp4" type="video/mp4">
-      </video>
-      <h3>Video 01 - My First Project</h3>
-      <p class="video-description">
-        Write your description here.
-      </p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 02 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video2.mp4" type="video/mp4">
-      </video>
-      <h3>Video 02 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 03 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video3.mp4" type="video/mp4">
-      </video>
-      <h3>Video 03 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 04 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video4.mp4" type="video/mp4">
-      </video>
-      <h3>Video 04 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 05 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video5.mp4" type="video/mp4">
-      </video>
-      <h3>Video 05 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 06 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video6.mp4" type="video/mp4">
-      </video>
-      <h3>Video 06 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 07 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video7.mp4" type="video/mp4">
-      </video>
-      <h3>Video 07 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 08 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video8.mp4" type="video/mp4">
-      </video>
-      <h3>Video 08 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 09 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video9.mp4" type="video/mp4">
-      </video>
-      <h3>Video 09 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 10 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video10.mp4" type="video/mp4">
-      </video>
-      <h3>Video 10 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 11 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video11.mp4" type="video/mp4">
-      </video>
-      <h3>Video 11 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
-
-    <!-- VIDEO 12 -->
-    <article class="video-card">
-      <video controls preload="metadata" playsinline>
-        <source src="videos/video12.mp4" type="video/mp4">
-      </video>
-      <h3>Video 12 - Project Title</h3>
-      <p class="video-description">Write your description here.</p>
-      <div class="video-meta">Views: Not connected</div>
-    </article>
+    <p id="latest-update">
+      Loading timestamp...
+    </p>
 
   </div>
+
 </section>
 
-<!-- ABOUT -->
+
+
+<!-- =========================================
+     ABOUT PAGE
+========================================= -->
+
 <section id="about" class="page">
 
   <div class="panel">
-    <h2>About</h2>
-    Luwian Base is an organisation for lonely people to find belonging and fight against guys with their hot chicks. It was founded by PU-Šarruma, who goes by "Lonely Sumerian" on YouTube.
+
+    <h2>About Luwian Base</h2>
+
+    <div class="about-text">
+
+      Luwian Base is an organisation for lonely people to find belonging and fight against guys with their hot chicks. It was founded by PU-Šarruma, who goes by "Lonely Sumerian" on YouTube.
+
+    </div>
+
   </div>
 
 </section>
 
-<!-- ACTIVITIES -->
+
+
+<!-- =========================================
+     ACTIVITIES PAGE
+========================================= -->
+
 <section id="activity" class="page">
 
-  <div class="panel">
-    <h2>Website Activity</h2>
 
-    <p>Website opened:</p>
-    <p id="activity-time"></p>
+  <!-- INTRODUCTION -->
 
-    <p class="video-meta">
-      Timestamp displayed using the visitor's local browser clock.
+  <div class="activity-intro">
+
+    <h1>Activities & Updates</h1>
+
+    <p>
+      Luwian Base is active daily, conducting operations almost daily! So we prepare our activity log, and update almost daily.
     </p>
+
+  </div>
+
+
+
+  <!-- ACTIVITY FEED -->
+
+  <div class="activity-feed">
+
+
+    <!-- =====================================
+         ENTRY 01
+    ====================================== -->
+
+    <article class="activity-entry">
+
+      <div class="activity-date">
+        13 NOVEMBER 2026
+      </div>
+
+      <h2>Social Media presence + Website Development</h2>
+
+      <p>
+        2-3 AM: Luwian Base is featured with a Minecraft Indev gameplay series on the Lonely Sumerian YouTube channel!
+        5-7 AM: The official website of the Luwian Base is being constructed.
+      </p>
+
+    </article>
+
+
+
+    <!-- =====================================
+         ENTRY 02
+    ====================================== -->
+
+    <article class="activity-entry">
+
+      <div class="activity-date">
+        12 NOVEMBER 2026
+      </div>
+
+      <h2>New Project Beginnings</h2>
+
+      <p>
+        Write your own description of this update here.
+        You can describe the project, its progress,
+        and any relevant developments.
+      </p>
+
+    </article>
+
+
+
+    <!-- =====================================
+         ENTRY 03
+    ====================================== -->
+
+    <article class="activity-entry">
+
+      <div class="activity-date">
+        11 NOVEMBER 2026
+      </div>
+
+      <h2>Historical Research</h2>
+
+      <p>
+        Write your own description of your research here.
+        This entry can cover ancient Anatolian history,
+        Luwian inscriptions, languages, and archaeology.
+      </p>
+
+      <div class="activity-image">
+
+        <img
+          src="images/activity3.jpg"
+          alt="Historical research"
+          onerror="this.parentElement.style.display='none'"
+        >
+
+        <div class="activity-caption">
+          Historical research documentation.
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- =====================================
+         ENTRY 04
+    ====================================== -->
+
+    <article class="activity-entry">
+
+      <div class="activity-date">
+        10 NOVEMBER 2026
+      </div>
+
+      <h2>Creative Projects</h2>
+
+      <p>
+        Write your description here.
+        Document your creative work and personal progress.
+      </p>
+
+    </article>
+
+
+
+    <!-- =====================================
+         ENTRY 05
+    ====================================== -->
+
+    <article class="activity-entry">
+
+      <div class="activity-date">
+        09 NOVEMBER 2026
+      </div>
+
+      <h2>Lonely Sumerian Update</h2>
+
+      <p>
+        Write your own description about the YouTube channel,
+        its Minecraft projects, nostalgia-related content,
+        and other creative work.
+      </p>
+
+    </article>
+
+
+
+    <!-- =====================================
+         COPY THIS TEMPLATE FOR NEW ENTRIES
+    ====================================== -->
+
+    <!--
+
+    <article class="activity-entry">
+
+      <div class="activity-date">
+        DAY MONTH YEAR
+      </div>
+
+      <h2>YOUR ACTIVITY TITLE</h2>
+
+      <p>
+        YOUR DESCRIPTION GOES HERE.
+        You can write multiple paragraphs if necessary.
+      </p>
+
+      <div class="activity-image">
+
+        <img
+          src="images/YOUR-IMAGE.jpg"
+          alt="Description of image"
+          onerror="this.parentElement.style.display='none'"
+        >
+
+        <div class="activity-caption">
+          Optional image caption.
+        </div>
+
+      </div>
+
+    </article>
+
+    -->
+
   </div>
 
 </section>
+
 
 </main>
 
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
 <footer>
+
   LUWIAN BASE · 2026
+
 </footer>
 
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
 <script>
+
 function showPage(pageId, button) {
+
   document.querySelectorAll('.page').forEach(page => {
     page.classList.remove('active');
   });
@@ -401,16 +707,22 @@ function showPage(pageId, button) {
   });
 
   document.getElementById(pageId).classList.add('active');
+
   button.classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
 }
+
 
 const now = new Date();
 
 document.getElementById("latest-update").textContent =
   now.toLocaleString();
 
-document.getElementById("activity-time").textContent =
-  now.toLocaleString();
 </script>
 
 </body>

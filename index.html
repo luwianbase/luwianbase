@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +7,9 @@
 
 <style>
 :root {
-  --bg: #080909;
-  --panel: #101110;
-  --panel2: #15130f;
-  --border: #382a1c;
+  --bg: #070808;
+  --panel: #0e0f0e;
+  --border: #302317;
   --copper: #987047;
   --text: #bdb3a3;
   --muted: #71675a;
@@ -21,15 +19,14 @@
 
 body {
   margin: 0;
-  background:
-    radial-gradient(ellipse at top, #17140f 0%, #090909 48%, #050606 100%);
+  background: radial-gradient(ellipse at top, #15120e 0%, #090909 48%, #050606 100%);
   color: var(--text);
   font-family: Verdana, Arial, sans-serif;
   font-size: 13px;
 }
 
 header {
-  background: #0b0a08;
+  background: #090807;
   border-bottom: 3px double var(--border);
   padding: 24px 12px;
   text-align: center;
@@ -49,8 +46,6 @@ header {
   image-rendering: pixelated;
 }
 
-.header-title { text-align: center; }
-
 .logo {
   color: var(--copper);
   font-family: Georgia, serif;
@@ -67,7 +62,7 @@ header {
 }
 
 nav {
-  background: #100e0b;
+  background: #0d0b09;
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: center;
@@ -77,7 +72,7 @@ nav {
 }
 
 nav button {
-  background: #19140f;
+  background: #17120e;
   border: 1px solid #493522;
   color: #b99a73;
   padding: 9px 17px;
@@ -87,7 +82,7 @@ nav button {
 
 nav button:hover,
 nav button.active {
-  background: #3a2819;
+  background: #342315;
   color: #e0c4a0;
 }
 
@@ -98,7 +93,7 @@ main {
 }
 
 .panel {
-  background: rgba(15, 16, 15, .97);
+  background: rgba(13, 14, 13, .98);
   border: 1px solid var(--border);
   margin-bottom: 18px;
   padding: 18px;
@@ -123,7 +118,7 @@ p { line-height: 1.7; }
 .notice {
   border-left: 3px solid var(--copper);
   padding: 10px 14px;
-  background: #15120e;
+  background: #12100d;
   color: #a99984;
 }
 
@@ -134,8 +129,8 @@ p { line-height: 1.7; }
 }
 
 .video-card {
-  background: #0a0b0a;
-  border: 1px solid #382a1c;
+  background: #090a09;
+  border: 1px solid #302317;
   padding: 12px;
   min-width: 0;
 }
@@ -155,7 +150,7 @@ p { line-height: 1.7; }
 .video-meta {
   color: var(--muted);
   font-size: 11px;
-  border-top: 1px dotted #382a1c;
+  border-top: 1px dotted #302317;
   padding-top: 8px;
 }
 
@@ -186,7 +181,7 @@ footer {
   <div class="header-brand">
     <img src="flag.png" alt="Decorative flag" class="header-flag">
 
-    <div class="header-title">
+    <div>
       <div class="logo">LUWIAN BASE</div>
     </div>
 
@@ -203,12 +198,16 @@ footer {
 
 <main>
 
+<!-- HOME -->
 <section id="home" class="page active">
+
   <div class="panel">
     <h2>Welcome</h2>
+
     <p>
       Welcome to Luwian Base.
     </p>
+
     <div class="notice">
       Established on the 12th of November 2026.
     </div>
@@ -218,35 +217,171 @@ footer {
     <h2>Latest update</h2>
     <p id="latest-update">Loading timestamp...</p>
   </div>
+
 </section>
 
+<!-- VIDEOS -->
 <section id="videos" class="page">
-  <div class="panel">
-    <h2>Video Archive</h2>
-    <p>Videos of our suffering and loneliness, while many many others have their fun with their hot chicks...</p>
-  </div>
 
-  <div class="video-grid" id="video-grid"></div>
-</section>
-
-<section id="about" class="page">
   <div class="panel">
-    <h2>About</h2>
+    <h2>Videos from the Luwian Base</h2>
+
     <p>
-      Luwian Base is an organisation for lonely people to find belonging and fight against guys with their hot chicks.
+      Videos of our suffering and loneliness, while many many others have their fun with their hot chicks... in cooperation with other organisations founded by PU-Šarruma.
     </p>
   </div>
+
+  <div class="video-grid">
+
+    <!-- VIDEO 01 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video1.mp4" type="video/mp4">
+      </video>
+      <h3>Video 01 - My First Project</h3>
+      <p class="video-description">
+        Write your description here.
+      </p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 02 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video2.mp4" type="video/mp4">
+      </video>
+      <h3>Video 02 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 03 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video3.mp4" type="video/mp4">
+      </video>
+      <h3>Video 03 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 04 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video4.mp4" type="video/mp4">
+      </video>
+      <h3>Video 04 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 05 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video5.mp4" type="video/mp4">
+      </video>
+      <h3>Video 05 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 06 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video6.mp4" type="video/mp4">
+      </video>
+      <h3>Video 06 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 07 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video7.mp4" type="video/mp4">
+      </video>
+      <h3>Video 07 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 08 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video8.mp4" type="video/mp4">
+      </video>
+      <h3>Video 08 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 09 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video9.mp4" type="video/mp4">
+      </video>
+      <h3>Video 09 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 10 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video10.mp4" type="video/mp4">
+      </video>
+      <h3>Video 10 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 11 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video11.mp4" type="video/mp4">
+      </video>
+      <h3>Video 11 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+    <!-- VIDEO 12 -->
+    <article class="video-card">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video12.mp4" type="video/mp4">
+      </video>
+      <h3>Video 12 - Project Title</h3>
+      <p class="video-description">Write your description here.</p>
+      <div class="video-meta">Views: Not connected</div>
+    </article>
+
+  </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="page">
+
+  <div class="panel">
+    <h2>About</h2>
+    Luwian Base is an organisation for lonely people to find belonging and fight against guys with their hot chicks. It was founded by PU-Šarruma, who goes by "Lonely Sumerian" on YouTube.
+  </div>
+
+</section>
+
+<!-- ACTIVITIES -->
 <section id="activity" class="page">
+
   <div class="panel">
     <h2>Website Activity</h2>
+
     <p>Website opened:</p>
     <p id="activity-time"></p>
+
     <p class="video-meta">
       Timestamp displayed using the visitor's local browser clock.
     </p>
   </div>
+
 </section>
 
 </main>
@@ -268,39 +403,6 @@ function showPage(pageId, button) {
   document.getElementById(pageId).classList.add('active');
   button.classList.add('active');
 }
-
-const videos = Array.from({length: 12}, (_, i) => ({
-  title: `Video ${i + 1}`,
-  description: "Add your video description here.",
-  file: `videos/video${i + 1}.mp4`
-}));
-
-const grid = document.getElementById("video-grid");
-
-videos.forEach(video => {
-  const card = document.createElement("article");
-  card.className = "video-card";
-
-  const player = document.createElement("video");
-  player.controls = true;
-  player.preload = "metadata";
-  player.playsInline = true;
-
-  const source = document.createElement("source");
-  source.src = video.file;
-  source.type = "video/mp4";
-  player.appendChild(source);
-
-  const title = document.createElement("h3");
-  title.textContent = video.title;
-
-  const description = document.createElement("p");
-  description.className = "video-description";
-  description.textContent = video.description;
-
-  card.append(player, title, description);
-  grid.appendChild(card);
-});
 
 const now = new Date();
 

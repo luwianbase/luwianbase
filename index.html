@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luwian Base</title>
+
+<style>
+:root {
+  --bg: #101010;
+  --panel: #191919;
+  --border: #55432d;
+  --copper: #bd8750;
+  --text: #d0c2ae;
+  --muted: #887967;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, #292016 0%, #101010 55%);
+  color: var(--text);
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 13px;
+}
+
+header {
+  background: #17120e;
+  border-bottom: 3px double var(--border);
+  padding: 24px 12px;
+  text-align: center;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  color: var(--copper);
+  font-size: 34px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 12px #8a572d;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 8px;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+
+nav {
+  background: #241b13;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 10px;
+}
+
+nav button {
+  background: #302318;
+  border: 1px solid #765331;
+  color: #d7b58d;
+  padding: 9px 17px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+nav button:hover,
+nav button.active {
+  background: #654323;
+  color: white;
+}
+
+main {
+  max-width: 920px;
+  margin: 24px auto;
+  padding: 0 14px;
+}
+
+.panel {
+  background: rgba(25, 25, 25, 0.96);
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+  padding: 18px;
+  box-shadow: 0 4px 15px #0008;
+}
+
+h2 {
+  color: var(--copper);
+  font-family: Georgia, serif;
+  font-size: 20px;
+  border-bottom: 1px dotted #765331;
+  padding-bottom: 9px;
+}
+
+h3 {
+  color: #c49a6c;
+  font-size: 14px;
+}
+
+p { line-height: 1.7; }
+
+a { color: #d6a56c; }
+
+.notice {
+  border-left: 3px solid var(--copper);
+  padding: 10px 14px;
+  background: #211b15;
+  color: #bca58b;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.video-card {
+  background: #111;
+  border: 1px solid #493725;
+  padding: 12px;
+}
+
+.video-card .thumbnail {
+  background: #282018;
+  min-height: 110px;
+  display: grid;
+  place-items: center;
+  color: #a27b51;
+  font-family: Georgia, serif;
+  font-size: 24px;
+}
+
+.timestamp {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+footer {
+  text-align: center;
+  padding: 22px;
+  color: #786957;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">LUWIAN BASE</div>
+</header>
+
+<nav>
+  <button class="active" onclick="showPage('home', this)">Home</button>
+  <button onclick="showPage('videos', this)">Videos</button>
+  <button onclick="showPage('about', this)">About</button>
+  <button onclick="showPage('activity', this)">Activities</button>
+</nav>
+
+<main>
+
+<section id="home" class="page active">
+  <div class="panel">
+    <h2>Welcome</h2>
+    <p>
+      Welcome to the website of the Luwian Base.
+    </p>
+    <div class="notice">
+      Luwian Base - established on the 12th of November 2026
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Latest update</h2>
+    <p id="latest-update">Loading timestamp...</p>
+    <p class="timestamp">This timestamp reflects when the page was opened.</p>
+  </div>
+</section>
+
+<section id="videos" class="page">
+  <div class="panel">
+    <h2>Video Archive</h2>
+    <p>Selected videos and personal projects.</p>
+
+    <div class="grid">
+      <div class="video-card">
+        <div class="thumbnail">𒀭</div>
+        <h3>Project One</h3>
+        <p class="timestamp">Video description goes here.</p>
+        <a href="#">Watch video</a>
+      </div>
+
+      <div class="video-card">
+        <div class="thumbnail">𒁹</div>
+        <h3>Project Two</h3>
+        <p class="timestamp">Video description goes here.</p>
+        <a href="#">Watch video</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="page">
+  <div class="panel">
+    <h2>About this website</h2>
+    <p>
+      This is the website of the Luwian Base.
+    </p>
+  </div>
+</section>
+
+<section id="activity" class="page">
+  <div class="panel">
+    <h2>Website Activity</h2>
+    <p>Latest page activity:</p>
+    <ul>
+      <li>Website opened — <span class="live-time"></span></li>
+      <li>Archive loaded — <span class="live-time"></span></li>
+    </ul>
+    <p class="timestamp">
+      Times are displayed using your browser's local clock.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Luwian Base
+</footer>
+
+<script>
+function showPage(pageId, button) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.querySelectorAll('nav button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  document.getElementById(pageId).classList.add('active');
+  button.classList.add('active');
+}
+
+const now = new Date();
+
+document.getElementById('latest-update').textContent =
+  now.toLocaleString();
+
+document.querySelectorAll('.live-time').forEach(element => {
+  element.textContent = now.toLocaleString();
+});
+</script>
+
+</body>
+</html>
